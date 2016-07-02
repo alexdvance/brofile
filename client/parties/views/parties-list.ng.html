@@ -1,0 +1,22 @@
+<form>
+  <label>Name</label>
+  <input ng-model="newVideo.name">
+  <label>Description</label>
+  <input ng-model="newVideo.description">
+  <label>Type</label>
+  <input ng-model="newVideo.type">
+  <label>Url</label>
+  <input ng-model="newVideo.url">
+  <button ng-click="addVideo(newVideo);">Add</button>
+</form>
+<ul>
+  <li ng-repeat="party in parties">
+    <button ng-click="remove(party)">X</button>
+    <a href="/parties/{{ party._id }}"
+       ng-bind="party.name">test</a>
+    <iframe ng-if="party.type === 'youtube'" 
+            id="ytplayer" type="text/html" width="640" height="390" 
+            ng-src="{{ party.url }}" frameborder="0"></iframe>
+    <p>{{party.description}}</p>
+  </li>
+</ul>
